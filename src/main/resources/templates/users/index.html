@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <main>
+        <h1>Lista</h1>
+        <div class="salvar">
+            <button id="btn">Novo</button>
+        </div>
+        <br>
+        <a href="">Voltar</a>
+        <br>
+        <br>
+        <form action="">
+            <section class="filtro">
+                <div id="ID">
+                    <label for="">ID</label><br>
+                    <input type="text">
+                </div>
+                <div id="filtroInput">
+                    <label for="">Nome</label><br>
+                    <input type="text">
+                </div>
+                <div id="filtroInput">
+                    <label for="">Login</label><br>
+                    <input type="text">
+                </div>
+                <br>
+                <div class="FiltroBtn">
+                    <button id="btn">Pesquisar</button>
+                </div>
+            </section>
+            <table border="1" class="Tabela">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Login</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${listUsers}">
+                        <td th:text="${user.id}"></td>
+                        <td th:text="${user.nome}"></td>
+                        <td th:text="${user.login}"></td>
+                        <td>
+                            <div class="icone-container">
+                                <div class="icone">
+                                    <a th:href="@{/users/{id}(id=${user.id})}"><img src="images/pen-solid.svg"
+                                            alt="Editar" /></a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="icone-container">
+                                <div class="icone">
+                                    <a th:href="@{/users/delete/{id}(id=${user.id})}"><img src="images/trash-solid.svg"
+                                            alt="Excluir" /></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table 
+        </form>
+    </main>
+</body>
+</html>
