@@ -16,7 +16,7 @@ body {
 }
 
 main {
-    height: 425px;
+    height: auto;
     width: 785px;
     background-color: #F5F5F5;
     margin-top: 100px;
@@ -124,10 +124,27 @@ form input {
 }
 
 .icone {
-    width: 17px;
-    height: 17px;
+    width: 12px;
+    height: 12px;
     cursor: pointer;
     display: flex;
     justify-content:center;
     align-items: center;
 }
+
+#icone{
+    width: 18px;
+    height: 18px;
+    margin-top: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+

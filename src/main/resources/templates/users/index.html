@@ -12,12 +12,11 @@
 <body>
     <main>
         <h1>Lista</h1>
-        <div class="salvar">
-            <button id="btn">Novo</button>
+        <br>
+        <div class="top">
+            <a href="">Voltar</a>
+        <button id="btn">Novo</button>
         </div>
-        <br>
-        <a href="">Voltar</a>
-        <br>
         <br>
         <form action="">
             <section class="filtro">
@@ -34,11 +33,9 @@
                     <input type="text">
                 </div>
                 <br>
-                <div class="FiltroBtn">
-                    <button id="btn">Pesquisar</button>
-                </div>
+                <button id="btn">Pesquisar</button>
             </section>
-            <table border="1" class="Tabela">
+            <table border="0" class="Tabela">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -51,27 +48,27 @@
                 <tbody>
                     <tr th:each="user : ${listUsers}">
                         <td th:text="${user.id}"></td>
-                        <td th:text="${user.nome}"></td>
+                        <td th:text="${user.name}"></td>
                         <td th:text="${user.login}"></td>
                         <td>
                             <div class="icone-container">
                                 <div class="icone">
-                                    <a th:href="@{/users/{id}(id=${user.id})}"><img src="../../static/images/pen-solid.svg"
-                                            alt="Editar" />Editar</a>
+                                    <a th:href="@{/users/{id}(id=${user.id})}"><img id="icone" src="/images/pen-solid.svg"
+                                            alt="Editar" /></a>
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div class="icone-container">
                                 <div class="icone">
-                                    <a th:href="@{/users/delete/{id}(id=${user.id})}"><img src="../../static/images/trash-solid.svg"
-                                            alt="Excluir" />Excluir</a>
+                                    <a th:href="@{/users/delete/{id}(id=${user.id})}"><img id="icone" src="/images/trash-solid.svg"
+                                            alt="Excluir" /></a>
                                 </div>
                             </div>
                         </td>
                     </tr>
                 </tbody>
-            </table 
+            </table>
         </form>
     </main>
 </body>

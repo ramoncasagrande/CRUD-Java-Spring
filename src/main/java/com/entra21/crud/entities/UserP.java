@@ -6,23 +6,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class UserP {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
     private String name;
+    private String login;
     private String email;
     private String password;
     
     @Deprecated
-    public User(){
+    public UserP(){
     }
 
-    public User (String name){
+    public UserP (String name){
         this.name = name;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -34,6 +36,12 @@ public class User {
     }
     public void setName(String name) {
         this.name = name;
+    }
+    public String getLogin() {
+        return login;
+    }
+    public void setLogin(String login) {
+        this.login = login;
     }
     public String getEmail() {
         return email;
@@ -47,6 +55,7 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+    
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -62,7 +71,7 @@ public class User {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        User other = (User) obj;
+        UserP other = (UserP) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
