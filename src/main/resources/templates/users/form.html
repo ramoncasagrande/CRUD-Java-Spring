@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css2/style2.css" th:href="@{css2/style2.css}" media="all" type="text/css">
+    <title>Cadastrar/Alterar</title>
+</head>
+<body>
+    <main>
+        <h1>Usuário</h1>
+        <br>
+        <a th:href="@{/users}">Voltar</a>
+        <br>
+        <br>
+        <br>
+        <form action="#" th:action="@{/users/new}" th:object="${user}" method="POST">
+            <input type="hidden" id="id" th:field="*{id}">
+            <label for="">Nome</label><label class="obg" for="">*</label><br>
+            <div class="salvar">
+                <button type="submit" id="btn">Salvar</button>
+            </div>
+            <input type="text" th:field="*{name}"><br>
+            <label for="">Login</label><label class="obg" for="">*</label><br>
+            <input type="text" th:field="*{login}"><br>
+            <label for="">Email</label><label class="obg" for="">*</label><br>
+            <input type="text" th:field="*{email}"><br>
+            <label for="">Senha</label><label class="obg" for="">*</label><br>
+            <input type="password" th:field="*{password}"><br>
+        </form>
+    </main>
+</body>
+</html>
