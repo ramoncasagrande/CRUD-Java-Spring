@@ -39,12 +39,24 @@ public class UserController {
 
     @GetMapping("/users/{id}")
     public String editUser(@PathVariable("id") long id, Model model){
+        
         Optional<UserP> userOpt = userRepository.findById(id);
         if (userOpt.isEmpty()){
             throw new IllegalArgumentException("Usuário Inválido");
         }
         model.addAttribute("user", userOpt.get());
         return "/users/form";
+    }
+
+    @GetMapping("/users/delete/{id}")
+    public String deleteUser(@PathVariable("id") long id){
+        
+        Optional<UserP> userOpt = userRepository.findById(id);
+        if (userOpt.isEmpty()){
+            throw new IllegalArgumentException("Usuário Inválido");
+        }
+        userRepository.delete(userOpt.get());
+        return "redirect:/users";
     }
 
 
