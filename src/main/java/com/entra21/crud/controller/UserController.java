@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.entra21.crud.entities.UserP;
 import com.entra21.crud.entities.UserRepository;
@@ -26,4 +27,9 @@ public class UserController {
         return "users/form";
     }
     
+    @PostMapping("/users/add")
+    public String saveUser(@ModelAttribute("user") UserP user){
+        userRepository.save(user);
+        return "redirect:/users";
+    }
 }
