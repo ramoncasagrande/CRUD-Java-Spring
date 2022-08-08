@@ -60,7 +60,7 @@
                         <td>
                             <div class="icone-container">
                                 <div class="icone">
-                                    <a th:href="@{/users/delete/{id}(id=${user.id})}"><img id="icone" src="/images/trash-solid.svg"
+                                    <a th:href="@{/users/delete/{id}(id=${user.id})}" onclick="return confirm('Deseja realmente excluir?')"><img id="icone" src="/images/trash-solid.svg"
                                             alt="Excluir" /></a>
                                 </div>
                             </div>
