@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/css2/style2.css" th:href="@{css2/style2.css}" media="all" type="text/css">
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{/css/style.css}" media="all" type="text/css">
     <title>Cadastrar/Alterar</title>
 </head>
 <body>
@@ -27,7 +27,7 @@
             <label for="">Email</label><label class="obg" for="">*</label><br>
             <input type="text" th:field="*{email}"><br>
             <label for="">Senha</label><label class="obg" for="">*</label><br>
-            <input type="password" th:field="*{password}"><br>
+            <input type="password" th:field="*{password}" required><br>
         </form>
     </main>
 </body>
