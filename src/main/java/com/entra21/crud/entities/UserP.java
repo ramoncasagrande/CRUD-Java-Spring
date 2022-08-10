@@ -24,10 +24,10 @@ public class UserP {
     private String login;
 
     //Verifica se o email tem formato válido
-    @Email
+    @Email(message = "deve ser um endereço de e-mail válido")
+    @NotBlank
     private String email;
 
-    
     private String password;
     
     //padrão de construtor vázio

@@ -21,6 +21,7 @@ public class InitialPopulation implements CommandLineRunner {
     public void run(String... args) throws Exception {
         
         UserP user = new UserP("Ramon");
+        user.setEmail("ramon@email.com");
         
         userRepository.save(user);
         

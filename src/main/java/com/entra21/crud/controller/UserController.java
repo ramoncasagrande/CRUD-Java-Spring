@@ -2,9 +2,12 @@ package com.entra21.crud.controller;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,8 +34,12 @@ public class UserController {
         return "users/form";
     }
     
-    @PostMapping("/users/add")
-    public String saveUser(@ModelAttribute("user") UserP user){
+    @PostMapping("/users/add")  //Anotação para validar os dados
+    public String saveUser(@Valid @ModelAttribute("user") UserP user, BindingResult bindingResult){
+        //Verifica se possui erros de validação
+        if (bindingResult.hasErrors()){
+            return "users/form";
+        }
         userRepository.save(user);
         return "redirect:/users";
     }
@@ -59,6 +66,5 @@ public class UserController {
         userRepository.delete(userOpt.get());
         return "redirect:/users";
     }
-
 
 }

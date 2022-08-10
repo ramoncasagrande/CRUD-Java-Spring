@@ -17,14 +17,16 @@
         <br>
         <form action="#" th:action="@{/users/add}" th:object="${user}" method="POST">
             <input type="hidden" id="id" th:field="*{id}">
-            <label for="">Nome</label><label class="obg" for="">*</label><br>
+            <label for="">Nome</label><label class="obg" for="">*</label>
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span><br>
             <div class="salvar">
                 <button type="submit" id="btn">Salvar</button>
             </div>
             <input type="text" th:field="*{name}"><br>
             <label for="">Login</label><label class="obg" for="">*</label><br>
             <input type="text" th:field="*{login}"><br>
-            <label for="">Email</label><label class="obg" for="">*</label><br>
+            <label for="">Email</label><label class="obg" for="">*</label>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span><br>
             <input type="text" th:field="*{email}"><br>
             <label for="">Senha</label><label class="obg" for="">*</label><br>
             <input type="password" th:field="*{password}"><br>
