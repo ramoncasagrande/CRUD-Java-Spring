@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import com.entra21.crud.entities.UserP;
 import com.entra21.crud.entities.UserRepository;
 
+
 @Component
 @Transactional
 public class InitialPopulation implements CommandLineRunner {

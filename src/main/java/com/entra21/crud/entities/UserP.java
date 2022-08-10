@@ -5,22 +5,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+//Cria a Tabela do Banco de Dados
 @Entity
 public class UserP {
 
+    //Cria chave primária
     @Id
+    //Gera o numero de Id com incremento (id++)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
     private String name;
     private String login;
     private String email;
+
+    
     private String password;
     
+    //padrão de construtor vázio
     @Deprecated
     public UserP(){
     }
-
+    //força a passagem de parametro de pelo menos um atributo
     public UserP (String name){
         this.name = name;
     }
@@ -56,6 +62,7 @@ public class UserP {
         this.password = password;
     }
     
+    //hashCode só do atributo id
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -63,6 +70,8 @@ public class UserP {
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         return result;
     }
+
+    //equals só do atriibuto id
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -79,10 +88,4 @@ public class UserP {
             return false;
         return true;
     }
-
-    
-
-    
-
-    
 }

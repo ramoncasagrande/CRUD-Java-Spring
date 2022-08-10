@@ -16,12 +16,13 @@ import com.entra21.crud.entities.UserRepository;
 @Controller
 public class UserController {
 
+    //cria uma instancia do objeto
     @Autowired
     private UserRepository userRepository;
 
     @GetMapping("/users")
     public String users(Model model){
-        model.addAttribute("listUsers", userRepository.findAll());
+        model.addAttribute("listUsers", userRepository.findAll());//chama o objeto instanciado com a annotation autowired
         return "users/index";
     }
 
