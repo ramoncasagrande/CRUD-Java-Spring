@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 //Cria a Tabela do Banco de Dados
 @Entity
@@ -15,8 +17,14 @@ public class UserP {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    //Verifica se o campo não está vazio ou apenas espaços em branco
+    @NotBlank
     private String name;
+
     private String login;
+
+    //Verifica se o email tem formato válido
+    @Email
     private String email;
 
     
