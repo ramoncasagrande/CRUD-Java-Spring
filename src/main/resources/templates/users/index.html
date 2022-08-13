@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,12 @@
 
 <body>
     <main>
+        <form class="cabecalho" th:action="@{/logout}" method="post">
+            <label>Usuário: <span class="nomeusuario" sec:authentication="name">Usuário</span></label>
+            <button type="submit" id="btnsair">Sair</button>
+        </form>
         <h1>Lista</h1>
+        
         <br>
         <div class="top">
             <a href="">Voltar</a>
