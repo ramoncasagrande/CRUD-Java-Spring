@@ -1,19 +1,23 @@
 package com.entra21.crud.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 @Configuration      //indica que a classe fonecerá configurações para o springboot
 @EnableWebSecurity  //indica que a classe fonecerá configurações de segurança
 public class ConfigSecurity extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -28,14 +32,15 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
                 .permitAll();                   //Permite acesso ao fomulario de logout a todos
     }
     
-    @Override
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
+        auth.userDetailsService(userDetailsService)
+        .passwordEncoder(getPasswordEncoder());
+
+    }
+
     @Bean
-    protected UserDetailsService userDetailsService() {     //verifica os logins
-        UserDetails user = User.withDefaultPasswordEncoder()
-                            .username("ramon")
-                            .password("ramon")
-                            .roles("USER")
-                            .build();
-        return new InMemoryUserDetailsManager(user);
+    public PasswordEncoder getPasswordEncoder() {
+        return new BCryptPasswordEncoder(12);   //Parâmetro de força de criptografia
     }
 }

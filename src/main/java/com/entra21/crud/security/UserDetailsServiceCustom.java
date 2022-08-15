@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.entra21.crud.entities.UserP;
 import com.entra21.crud.entities.UserRepository;
 
-@Service("UserDetailsService")
+@Service("userDetailsService")
 public class UserDetailsServiceCustom implements UserDetailsService {
 
     @Autowired
