@@ -1,4 +1,4 @@
-package com.entra21.crud;
+package com.entra21.crud.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

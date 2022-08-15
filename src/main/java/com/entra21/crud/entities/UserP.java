@@ -29,6 +29,8 @@ public class UserP {
     private String email;
 
     private String password;
+
+    private String role;
     
     //padrão de construtor vázio
     @Deprecated
@@ -69,6 +71,13 @@ public class UserP {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
+    }
     
     //hashCode só do atributo id
     @Override
@@ -96,4 +105,5 @@ public class UserP {
             return false;
         return true;
     }
+    
 }

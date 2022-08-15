@@ -29,7 +29,7 @@
             <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span><br>
             <input type="text" th:field="*{email}"><br>
             <label for="">Senha</label><label class="obg" for="">*</label><br>
-            <input type="password" th:field="*{password}"><br>
+            <input type="password" th:field="*{password}" required><br>
         </form>
     </main>
 </body>
