@@ -30,7 +30,7 @@ public class UserP {
 
     private String password;
 
-    private String role;
+    private String role = "ADMIN";
     
     //padrão de construtor vázio
     @Deprecated

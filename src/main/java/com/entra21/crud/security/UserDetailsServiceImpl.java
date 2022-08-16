@@ -17,7 +17,7 @@ import com.entra21.crud.entities.UserP;
 import com.entra21.crud.entities.UserRepository;
 
 @Service("userDetailsService")
-public class UserDetailsServiceCustom implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     UserRepository userRepository;

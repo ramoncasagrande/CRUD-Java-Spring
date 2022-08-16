@@ -35,12 +35,12 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(userDetailsService)
-        .passwordEncoder(getPasswordEncoder());
+        .passwordEncoder(PasswordEncoder());
 
     }
-
+ 
     @Bean
-    public PasswordEncoder getPasswordEncoder() {
-        return new BCryptPasswordEncoder(12);   //Parâmetro de força de criptografia
+    public PasswordEncoder PasswordEncoder() {
+        return new BCryptPasswordEncoder();   //Parâmetro de força de criptografia
     }
 }
